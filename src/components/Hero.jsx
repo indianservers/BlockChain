@@ -43,8 +43,8 @@ export default function Hero({ stats }) {
             A professional simulation workspace where students operate blockchain systems, inspect live state, diagnose failures, and complete guided missions.
           </motion.p>
           <motion.div className="mt-8 flex flex-wrap gap-3" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
-            <a href="#learning-console" className="btn-primary">
-              Open Learning Console <ArrowDown size={18} />
+            <a href="#interactive-lab-console" className="btn-primary">
+              Start Interactive Lab <ArrowDown size={18} />
             </a>
             <a href="#practice" className="btn-secondary">Try Practice</a>
           </motion.div>

@@ -11,6 +11,7 @@ import {
   Sun
 } from "lucide-react";
 import Hero from "./components/Hero.jsx";
+import InteractiveLearningConsole from "./components/InteractiveLearningConsole.jsx";
 import ProfessionalCommandCenter, { LabNavigator } from "./components/ProfessionalCommandCenter.jsx";
 import BlockchainWalkthrough from "./components/walkthrough/BlockchainWalkthrough.jsx";
 import TransactionJourneyTracker from "./components/transaction/TransactionJourneyTracker.jsx";
@@ -55,6 +56,7 @@ import { getStoredProgress, saveProgress } from "./utils/storage.js";
 
 const navItems = [
   ["hero", "Hero"],
+  ["interactive-lab-console", "Live Console"],
   ["learning-console", "Console"],
   ["blockchain-walkthrough", "Walkthrough"],
   ["transaction-journey", "Tx Journey"],
@@ -277,6 +279,7 @@ function App() {
 
       <main>
         <Hero stats={shellStats} />
+        <InteractiveLearningConsole />
         <ProfessionalCommandCenter completionPercent={completionPercent} />
         <BlockchainWalkthrough />
         <TransactionJourneyTracker />

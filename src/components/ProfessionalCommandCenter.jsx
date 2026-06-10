@@ -3,6 +3,14 @@ import { Activity, Bitcoin, Blocks, CheckCircle2, CircleDollarSign, FileBadge, F
 
 const phaseCards = [
   {
+    title: "Core Tool",
+    label: "Interactive Learning Console",
+    target: "#interactive-lab-console",
+    icon: Activity,
+    objective: "Operate blockchain missions from one live workspace with score, feedback, and required actions.",
+    metrics: ["Mission tabs", "Live state", "Score"]
+  },
+  {
     title: "Phase 1",
     label: "Step-by-Step Walkthrough",
     target: "#blockchain-walkthrough",
@@ -260,6 +268,7 @@ export function LabNavigator() {
     <nav className="fixed left-4 top-24 z-40 hidden w-48 rounded-lg border border-slate-200 bg-white/90 p-2 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/85 2xl:block" aria-label="Lab navigator">
       {[
         ["Console", "#learning-console", Route],
+        ["Live Tool", "#interactive-lab-console", Activity],
         ["Walkthrough", "#blockchain-walkthrough", Route],
         ["Tx + Hash", "#transaction-journey", Fingerprint],
         ["Network Labs", "#network-pulse", Network],
