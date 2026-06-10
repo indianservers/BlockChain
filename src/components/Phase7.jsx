@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { AlertTriangle, CheckCircle2, Code2, FileCode2, Play, RefreshCw, ScrollText, ShieldCheck, TerminalSquare, WalletCards } from "lucide-react";
 import { phase7Quiz, smartContractUseCases } from "../data/phase7.js";
 import { callEscrowFunction, contractBugDemos, createEscrowContract, escrowStates, functionSpecs, validateEscrowCall } from "../utils/contractEngine.js";
+import SmartContractStateMachine from "./contracts/SmartContractStateMachine.jsx";
 
 export default function Phase7() {
   const [contract, setContract] = useState(() => loadContract());
@@ -76,6 +77,8 @@ export default function Phase7() {
           <StateMachine state={contract.state} />
         </div>
       </section>
+
+      <SmartContractStateMachine />
 
       <section id="escrow-playground" className="section-wrap bg-slate-100/70 dark:bg-white/[.035]">
         <PhaseTitle icon={Play} eyebrow="Escrow function playground" title="Call functions and watch the rule engine respond" description="Try the correct sequence or intentionally call functions out of order. The terminal will explain each result." />

@@ -1,7 +1,39 @@
 import { motion } from "framer-motion";
-import { Activity, Bitcoin, Blocks, CheckCircle2, FileBadge, FileCode2, FileHeart, Fingerprint, GalleryHorizontalEnd, GraduationCap, KeyRound, Landmark, Network, Pickaxe, Route, Send, ShieldCheck, Truck, WalletCards } from "lucide-react";
+import { Activity, Bitcoin, Blocks, CheckCircle2, CircleDollarSign, FileBadge, FileCode2, FileHeart, Fingerprint, GalleryHorizontalEnd, GraduationCap, KeyRound, Landmark, Network, Pickaxe, Route, Send, ShieldCheck, Truck, Vote, WalletCards } from "lucide-react";
 
 const phaseCards = [
+  {
+    title: "Phase 1",
+    label: "Step-by-Step Walkthrough",
+    target: "#blockchain-walkthrough",
+    icon: Route,
+    objective: "Follow the full blockchain lifecycle with guided controls and a 3D assembly scene.",
+    metrics: ["10 steps", "3D scene", "Autoplay"]
+  },
+  {
+    title: "Phase 1",
+    label: "Transaction and Hash Diagnostics",
+    target: "#transaction-journey",
+    icon: Fingerprint,
+    objective: "Track a transaction, compare live hash changes, highlight links, and trigger tamper recovery.",
+    metrics: ["Tx journey", "Hash diff", "Tamper lab"]
+  },
+  {
+    title: "Phase 1",
+    label: "Network, Mempool and Mining Arena",
+    target: "#network-pulse",
+    icon: Network,
+    objective: "Broadcast pulses, replay ledger sync, sort mempool transactions, and race miners through a target gate.",
+    metrics: ["Broadcast", "Mempool", "Mining race"]
+  },
+  {
+    title: "Advanced",
+    label: "Wallet Security, NFT Gallery and Final Mission",
+    target: "#wallet-security-simulation",
+    icon: ShieldCheck,
+    objective: "Practice wallet safety, inspect 3D NFT ownership, and complete the final guided mission.",
+    metrics: ["Security", "3D NFTs", "Mission"]
+  },
   {
     title: "Phase 1",
     label: "Foundations Lab",
@@ -121,6 +153,22 @@ const phaseCards = [
     icon: FileHeart,
     objective: "Grant, expire, revoke, reject, and audit patient-controlled medical record access.",
     metrics: ["Consent", "Expiry", "Audit"]
+  },
+  {
+    title: "Case Study",
+    label: "DAO Treasury Voting",
+    target: "#dao-treasury-case",
+    icon: Vote,
+    objective: "Create proposals, calculate voting power, meet quorum, and execute treasury payments.",
+    metrics: ["Treasury", "Quorum", "Voting"]
+  },
+  {
+    title: "Case Study",
+    label: "DeFi Lending and Liquidation",
+    target: "#defi-lending-case",
+    icon: CircleDollarSign,
+    objective: "Deposit collateral, borrow assets, monitor health factor, and simulate liquidation.",
+    metrics: ["LTV", "Health factor", "Liquidation"]
   }
 ];
 
@@ -173,7 +221,7 @@ export default function ProfessionalCommandCenter({ completionPercent }) {
         <div className="grid gap-4 md:grid-cols-2">
           {phaseCards.map(({ title, label, target, icon: Icon, objective, metrics }, index) => (
             <motion.a
-              key={title}
+              key={label}
               href={target}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -212,6 +260,10 @@ export function LabNavigator() {
     <nav className="fixed left-4 top-24 z-40 hidden w-48 rounded-lg border border-slate-200 bg-white/90 p-2 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/85 2xl:block" aria-label="Lab navigator">
       {[
         ["Console", "#learning-console", Route],
+        ["Walkthrough", "#blockchain-walkthrough", Route],
+        ["Tx + Hash", "#transaction-journey", Fingerprint],
+        ["Network Labs", "#network-pulse", Network],
+        ["Advanced", "#wallet-security-simulation", ShieldCheck],
         ["Phase 1 Tool", "#learning-tool", Blocks],
         ["Phase 2 Hash", "#phase2-workbench", Fingerprint],
         ["Phase 3 Tx", "#phase3", Send],
@@ -227,6 +279,8 @@ export function LabNavigator() {
         ["Certificate Case", "#certificate-case", FileBadge],
         ["Land Case", "#land-registry-case", Landmark],
         ["Healthcare Case", "#healthcare-case", FileHeart],
+        ["DAO Case", "#dao-treasury-case", Vote],
+        ["Lending Case", "#defi-lending-case", CircleDollarSign],
         ["Summary", "#summary", ShieldCheck]
       ].map(([label, href, Icon]) => (
         <a key={label} href={href} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-black text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white">

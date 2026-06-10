@@ -1,6 +1,9 @@
 import { useMemo, useState } from "react";
 import { AlertTriangle, CheckCircle2, GitFork, Network, Radio, RefreshCw, Scale, ShieldCheck, Swords, UserCheck, Vote } from "lucide-react";
 import Phase6NetworkScene from "../scenes/Phase6NetworkScene.jsx";
+import ConsensusVotingBoard from "./consensus/ConsensusVotingBoard.jsx";
+import ForkSplitAnimation from "./consensus/ForkSplitAnimation.jsx";
+import DoubleSpendAlarm from "./consensus/DoubleSpendAlarm.jsx";
 import { phase6Quiz } from "../data/phase6.js";
 import {
   bftStatus,
@@ -95,6 +98,8 @@ export default function Phase6() {
         </div>
       </section>
 
+      <ConsensusVotingBoard />
+
       <section id="fork-lab" className="section-wrap bg-slate-100/70 dark:bg-white/[.035]">
         <PhaseTitle icon={GitFork} eyebrow="Fork demonstration" title="Split the network, then resolve to one chain" description="A fork means nodes temporarily disagree on which chain tip is valid. Consensus rules resolve the split." />
         <div className="grid gap-5 lg:grid-cols-[.75fr_1.25fr]">
@@ -115,6 +120,8 @@ export default function Phase6() {
           </div>
         </div>
       </section>
+
+      <ForkSplitAnimation />
 
       <section id="double-spend-bft" className="section-wrap">
         <PhaseTitle icon={Swords} eyebrow="Attacks and BFT" title="Detect double spend and measure Byzantine tolerance" description="Consensus should reject conflicting transactions and remain safe when faulty nodes stay below the tolerance limit." />
@@ -137,6 +144,8 @@ export default function Phase6() {
           </article>
         </div>
       </section>
+
+      <DoubleSpendAlarm />
 
       <section id="consensus-types" className="section-wrap bg-slate-100/70 dark:bg-white/[.035]">
         <PhaseTitle icon={Scale} eyebrow="Consensus comparison" title="Compare major consensus mechanisms" description="Different networks choose different ways to select validators and finalize blocks." />

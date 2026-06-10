@@ -12,6 +12,18 @@ import {
 } from "lucide-react";
 import Hero from "./components/Hero.jsx";
 import ProfessionalCommandCenter, { LabNavigator } from "./components/ProfessionalCommandCenter.jsx";
+import BlockchainWalkthrough from "./components/walkthrough/BlockchainWalkthrough.jsx";
+import TransactionJourneyTracker from "./components/transaction/TransactionJourneyTracker.jsx";
+import HashChangeVisualizer from "./components/hash/HashChangeVisualizer.jsx";
+import TamperLab from "./components/hash/TamperLab.jsx";
+import NetworkPulseScene from "./components/network/NetworkPulseScene.jsx";
+import LedgerSyncReplay from "./components/network/LedgerSyncReplay.jsx";
+import MempoolWaitingRoom from "./components/mempool/MempoolWaitingRoom.jsx";
+import DifficultyTargetGate from "./components/mining/DifficultyTargetGate.jsx";
+import MiningRaceArena from "./components/mining/MiningRaceArena.jsx";
+import WalletSecuritySimulation from "./components/security/WalletSecuritySimulation.jsx";
+import NFTGallery3D from "./components/nft/NFTGallery3D.jsx";
+import FinalMissionMode from "./components/mission/FinalMissionMode.jsx";
 import LearningWorkbench from "./components/LearningWorkbench.jsx";
 import ThreeIntro from "./components/ThreeIntro.jsx";
 import ExplanationCards from "./components/ExplanationCards.jsx";
@@ -36,12 +48,23 @@ import SupplyChainTraceCase from "./components/SupplyChainTraceCase.jsx";
 import DigitalCertificateCase from "./components/DigitalCertificateCase.jsx";
 import LandRegistryCase from "./components/LandRegistryCase.jsx";
 import HealthcareAccessCase from "./components/HealthcareAccessCase.jsx";
+import DaoTreasuryVotingCase from "./components/DaoTreasuryVotingCase.jsx";
+import DefiLendingLiquidationCase from "./components/DefiLendingLiquidationCase.jsx";
 import Summary from "./components/Summary.jsx";
 import { getStoredProgress, saveProgress } from "./utils/storage.js";
 
 const navItems = [
   ["hero", "Hero"],
   ["learning-console", "Console"],
+  ["blockchain-walkthrough", "Walkthrough"],
+  ["transaction-journey", "Tx Journey"],
+  ["hash-change-visualizer", "Hash Diff"],
+  ["tamper-link-lab", "Tamper Links"],
+  ["network-pulse", "Network Pulse"],
+  ["ledger-sync-replay", "Ledger Sync"],
+  ["mempool-waiting-room", "Mempool Room"],
+  ["difficulty-target-gate", "Target Gate"],
+  ["mining-race-arena", "Mining Race"],
   ["learning-tool", "Tool"],
   ["intro", "3D Intro"],
   ["basics", "Basics"],
@@ -79,13 +102,17 @@ const navItems = [
   ["phase6", "Phase 6"],
   ["node-network", "Nodes"],
   ["proposal-voting", "Voting"],
+  ["consensus-voting-board", "Vote Board"],
   ["fork-lab", "Forks"],
+  ["fork-split-animation", "Fork Split"],
   ["double-spend-bft", "BFT"],
+  ["double-spend-alarm", "Spend Alarm"],
   ["consensus-types", "Consensus Types"],
   ["phase6-practice", "Consensus Challenge"],
   ["phase7", "Phase 7"],
   ["contract-explainer", "Contract Flow"],
   ["contract-anatomy", "Contract Anatomy"],
+  ["smart-contract-state-machine", "State Machine"],
   ["escrow-playground", "Escrow"],
   ["contract-use-bugs", "Bugs"],
   ["phase7-practice", "Contract Challenge"],
@@ -93,6 +120,7 @@ const navItems = [
   ["fungible-nft", "Token Types"],
   ["erc20-lab", "ERC-20"],
   ["nft-lab", "NFT"],
+  ["nft-ownership-gallery-3d", "3D NFT Gallery"],
   ["marketplace-metadata", "Market"],
   ["token-standards", "Standards"],
   ["phase8-events", "Token Events"],
@@ -107,6 +135,8 @@ const navItems = [
   ["phase9-events", "DeFi Events"],
   ["phase9-practice", "DeFi Challenge"],
   ["phase10", "Phase 10"],
+  ["wallet-security-simulation", "Wallet Security"],
+  ["final-mission-mode", "Final Mission"],
   ["revision-dashboard", "Revision"],
   ["capstone-flow", "Full Flow"],
   ["integrated-labs", "Integrated Labs"],
@@ -146,6 +176,20 @@ const navItems = [
   ["access-verification", "Access Verify"],
   ["healthcare-audit", "Health Audit"],
   ["healthcare-quiz", "Health Quiz"],
+  ["dao-treasury-case", "DAO Case"],
+  ["dao-dashboard", "DAO Dashboard"],
+  ["dao-proposal", "Proposal"],
+  ["dao-voting", "DAO Voting"],
+  ["dao-execution", "Execution"],
+  ["dao-risk-audit", "DAO Risk"],
+  ["dao-quiz", "DAO Quiz"],
+  ["defi-lending-case", "Lending Case"],
+  ["lending-dashboard", "Lending Board"],
+  ["collateral-borrow", "Borrow"],
+  ["price-liquidation", "Liquidation"],
+  ["repay-withdraw", "Repay"],
+  ["lending-risk", "Lending Risk"],
+  ["lending-quiz", "Lending Quiz"],
   ["summary", "Summary"]
 ];
 
@@ -234,6 +278,15 @@ function App() {
       <main>
         <Hero stats={shellStats} />
         <ProfessionalCommandCenter completionPercent={completionPercent} />
+        <BlockchainWalkthrough />
+        <TransactionJourneyTracker />
+        <HashChangeVisualizer />
+        <TamperLab />
+        <NetworkPulseScene />
+        <LedgerSyncReplay />
+        <MempoolWaitingRoom />
+        <DifficultyTargetGate />
+        <MiningRaceArena />
         <LearningWorkbench />
         <ThreeIntro />
         <ExplanationCards />
@@ -258,13 +311,18 @@ function App() {
         <Phase6 />
         <Phase7 />
         <Phase8 />
+        <NFTGallery3D />
         <Phase9 />
         <Phase10 />
+        <WalletSecuritySimulation />
+        <FinalMissionMode />
         <BitcoinPaymentCase />
         <SupplyChainTraceCase />
         <DigitalCertificateCase />
         <LandRegistryCase />
         <HealthcareAccessCase />
+        <DaoTreasuryVotingCase />
+        <DefiLendingLiquidationCase />
 
         <Summary completionPercent={completionPercent} completed={completed.size} total={navItems.length} />
       </main>
