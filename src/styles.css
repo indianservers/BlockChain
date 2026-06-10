@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .section-wrap {
+    @apply mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24;
+  }
+
+  .panel {
+    @apply rounded-lg border border-slate-200 bg-white shadow-soft dark:border-white/10 dark:bg-slate-900/80;
+  }
+
+  .instrument-panel {
+    @apply rounded-lg border border-slate-200 bg-white shadow-soft ring-1 ring-slate-950/[.02] dark:border-white/10 dark:bg-slate-900/80 dark:ring-white/[.03];
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-black uppercase tracking-wide;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-bluex to-cyanx px-4 py-2 font-extrabold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-blue-500/25;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 font-extrabold text-slate-900 transition hover:-translate-y-0.5 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-500/20 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/15;
+  }
+}
+
+@layer utilities {
+  .tool-grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, .14) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, .14) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+.network-line {
+  stroke-dasharray: 9 9;
+  animation: dash 11s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -220;
+  }
+}
