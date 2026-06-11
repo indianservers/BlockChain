@@ -45,7 +45,7 @@ export default function Phase7() {
         <div className="grid gap-8 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
           <div>
             <p className="mb-3 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-cyanx">
-              <FileCode2 size={17} /> Phase 7
+              <FileCode2 size={17} /> Smart Contracts
             </p>
             <h2 className="text-4xl font-black tracking-tight md:text-6xl">Smart Contracts Visual Lab</h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -269,7 +269,7 @@ function Phase7Quiz() {
       </div>
       {done ? (
         <>
-          <h3 className="text-3xl font-black">Phase 7 score: {score}/{phase7Quiz.length}</h3>
+          <h3 className="text-3xl font-black">Contract score: {score}/{phase7Quiz.length}</h3>
           <button type="button" onClick={() => { setIndex(0); setScore(0); setSelected(null); setDone(false); localStorage.setItem("bfv-phase7-quiz", "0"); }} className="btn-primary mt-6">Restart</button>
         </>
       ) : (

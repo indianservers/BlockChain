@@ -82,7 +82,7 @@ export default function Phase3() {
         <div className="grid items-center gap-8 lg:grid-cols-[.95fr_1.05fr]">
           <div>
             <p className="mb-3 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-cyanx">
-              <Send size={17} /> Phase 3
+              <Send size={17} /> Transactions
             </p>
             <h2 className="text-4xl font-black tracking-tight md:text-6xl">Transactions & Digital Signatures Lab</h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -191,7 +191,7 @@ export default function Phase3() {
       </section>
 
       <section id="phase3-practice" className="section-wrap bg-slate-100/70 dark:bg-white/[.035]">
-        <PhaseTitle icon={CheckCircle2} eyebrow="Practice and challenge" title="Create, sign, verify, and add 3 valid transactions" description="Finish Phase 3 by proving you can move valid transactions from wallets to mempool to block." />
+        <PhaseTitle icon={CheckCircle2} eyebrow="Practice and challenge" title="Create, sign, verify, and add 3 valid transactions" description="Prove you can move valid transactions from wallets to mempool to block." />
         <div className="grid gap-5 lg:grid-cols-[.85fr_1.15fr]">
           <Phase3Quiz />
           <TransactionChallenge />
@@ -260,7 +260,7 @@ function Phase3Quiz() {
       </div>
       {done ? (
         <>
-          <h3 className="text-3xl font-black">Phase 3 score: {score}/{phase3Quiz.length}</h3>
+          <h3 className="text-3xl font-black">Transactions score: {score}/{phase3Quiz.length}</h3>
           <button type="button" onClick={() => { setIndex(0); setScore(0); setSelected(null); setDone(false); localStorage.setItem("bfv-phase3-quiz", "0"); }} className="btn-primary mt-6">Restart</button>
         </>
       ) : (

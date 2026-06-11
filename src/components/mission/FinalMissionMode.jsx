@@ -40,7 +40,7 @@ export default function FinalMissionMode() {
   function runStep(index) {
     if (index !== current) {
       setState(s => ({ ...s, mistakes: s.mistakes + 1 }));
-      log("InvalidActionRejected", `Mission step ${index + 1} is locked. Complete step ${current + 1} first.`, "Rejected");
+      log("InvalidActionRejected", `Mission action ${index + 1} is locked. Complete action ${current + 1} first.`, "Rejected");
       return;
     }
     const eventNames = ["WalletGenerated", "TransactionCreated", "TransactionSigned", "TransactionBroadcasted", "TransactionValidated", "MempoolAdded", "BlockMined", "ConsensusVoteCast", "LedgerUpdated", "ContractDeployed", "NFTTransferred", "SecurityChallengeCompleted"];

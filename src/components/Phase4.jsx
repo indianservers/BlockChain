@@ -83,7 +83,7 @@ export default function Phase4() {
         <div className="grid items-center gap-8 lg:grid-cols-[.95fr_1.05fr]">
           <div>
             <p className="mb-3 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-cyanx">
-              <WalletCards size={17} /> Phase 4
+              <WalletCards size={17} /> Wallets
             </p>
             <h2 className="text-4xl font-black tracking-tight md:text-6xl">Wallets, Keys & Ownership Practice</h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -306,7 +306,7 @@ function SendPractice(props) {
         <button type="button" onClick={broadcastSend} className="btn-secondary"><Radio size={18} /> Broadcast</button>
         <button type="button" onClick={confirmSend} className="btn-primary">Confirm</button>
       </div>
-      <p className="mt-4 rounded-lg bg-cyanx/10 p-3 font-black text-cyanx">Stage: {stage}</p>
+      <p className="mt-4 rounded-lg bg-cyanx/10 p-3 font-black text-cyanx">Status: {stage}</p>
       {sendDraft && (
         <div className="mt-4 grid gap-2">
           <Status ok={verification?.checks.hasSignature} label="Signature present" />
@@ -346,7 +346,7 @@ function Phase4Quiz() {
       </div>
       {done ? (
         <>
-          <h3 className="text-3xl font-black">Phase 4 score: {score}/{phase4Quiz.length}</h3>
+          <h3 className="text-3xl font-black">Wallet score: {score}/{phase4Quiz.length}</h3>
           <button type="button" onClick={() => { setIndex(0); setScore(0); setSelected(null); setDone(false); localStorage.setItem("bfv-phase4-quiz", "0"); }} className="btn-primary mt-6">Restart</button>
         </>
       ) : (

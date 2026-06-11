@@ -25,7 +25,7 @@ export default function StepProgressBar({ steps, currentStep, completedSteps, on
             >
               <span className="flex items-center gap-2 text-xs font-black uppercase tracking-wide">
                 {complete && <CheckCircle2 size={14} />}
-                Step {index + 1}
+                {index + 1}
               </span>
               <span className="mt-1 block text-sm font-black">{step.title}</span>
             </button>

@@ -15,7 +15,7 @@ export default function JourneyStageCard({ stage, index, active, complete, onSel
     >
       <span className="mb-2 flex items-center gap-2 text-xs font-black uppercase tracking-wide">
         {complete ? <CheckCircle2 size={15} /> : <Circle size={15} />}
-        Stage {index + 1}
+        {index + 1}
       </span>
       <span className="block text-base font-black">{stage.title}</span>
       <span className={`mt-3 inline-flex rounded-full px-2.5 py-1 text-xs font-black uppercase tracking-wide ${stage.badgeClass}`}>

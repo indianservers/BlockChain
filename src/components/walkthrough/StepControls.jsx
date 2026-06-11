@@ -4,10 +4,10 @@ export default function StepControls({ currentStep, totalSteps, isAutoPlaying, o
   return (
     <div className="flex flex-wrap gap-3">
       <button type="button" onClick={onPrevious} disabled={currentStep === 0} className="btn-secondary disabled:cursor-not-allowed disabled:opacity-45">
-        <SkipBack size={18} /> Previous Step
+        <SkipBack size={18} /> Previous
       </button>
       <button type="button" onClick={onNext} disabled={currentStep === totalSteps - 1} className="btn-primary disabled:cursor-not-allowed disabled:opacity-45">
-        Next Step <SkipForward size={18} />
+        Next <SkipForward size={18} />
       </button>
       {isAutoPlaying ? (
         <button type="button" onClick={onPause} className="btn-secondary">

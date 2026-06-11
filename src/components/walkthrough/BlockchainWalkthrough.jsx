@@ -141,13 +141,13 @@ export default function BlockchainWalkthrough() {
           <p className="mb-3 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-cyanx">
             <Route size={17} /> Guided Walkthrough Mode
           </p>
-          <h2 className="text-4xl font-black tracking-tight md:text-6xl">How Blockchain Works - Step by Step</h2>
+          <h2 className="text-4xl font-black tracking-tight md:text-6xl">How Blockchain Works</h2>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
-            Move through the complete blockchain journey from wallet creation to synchronized ledger update, with a live 3D assembly scene that changes as each step progresses.
+            Move through the complete blockchain journey from wallet creation to synchronized ledger update, with a live 3D assembly scene that changes as each action progresses.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
-          <WalkStat label="Current step" value={`${currentStep + 1}/10`} />
+          <WalkStat label="Current action" value={`${currentStep + 1}/10`} />
           <WalkStat label="Completed" value={`${completedSteps.length}/10`} />
           <WalkStat label="Status" value={complete ? "Complete" : "In progress"} />
         </div>

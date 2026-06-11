@@ -97,7 +97,7 @@ export default function Phase2Lab() {
         <div className="mb-7 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="mb-3 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-cyanx">
-              <FlaskConical size={17} /> Phase 2 Interactive Workbench
+              <FlaskConical size={17} /> Block & Hash Workbench
             </p>
             <h2 className="text-3xl font-black tracking-tight md:text-5xl">Block, hash, and chain mechanism</h2>
             <p className="mt-3 text-lg leading-8 text-slate-600 dark:text-slate-300">

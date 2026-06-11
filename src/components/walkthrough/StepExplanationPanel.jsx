@@ -13,7 +13,7 @@ export default function StepExplanationPanel({ step, currentStep }) {
         className="panel overflow-hidden"
       >
         <div className="bg-slate-950 p-6 text-white">
-          <p className="text-sm font-black uppercase tracking-wide text-cyanx">Step {currentStep + 1}</p>
+          <p className="text-sm font-black uppercase tracking-wide text-cyanx">Action {currentStep + 1}</p>
           <h3 className="mt-2 text-3xl font-black">{step.title}</h3>
           <p className="mt-3 leading-7 text-slate-300">{step.summary}</p>
         </div>

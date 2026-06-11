@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Activity, Bitcoin, Blocks, CheckCircle2, CircleDollarSign, FileBadge, FileCode2, FileHeart, Fingerprint, GalleryHorizontalEnd, GraduationCap, KeyRound, Landmark, Network, Pickaxe, Route, Send, ShieldCheck, Truck, Vote, WalletCards } from "lucide-react";
 
@@ -11,15 +12,15 @@ const phaseCards = [
     metrics: ["Mission tabs", "Live state", "Score"]
   },
   {
-    title: "Phase 1",
-    label: "Step-by-Step Walkthrough",
+    title: "Foundations",
+    label: "Guided Walkthrough",
     target: "#blockchain-walkthrough",
     icon: Route,
     objective: "Follow the full blockchain lifecycle with guided controls and a 3D assembly scene.",
-    metrics: ["10 steps", "3D scene", "Autoplay"]
+    metrics: ["10 actions", "3D scene", "Autoplay"]
   },
   {
-    title: "Phase 1",
+    title: "Diagnostics",
     label: "Transaction and Hash Diagnostics",
     target: "#transaction-journey",
     icon: Fingerprint,
@@ -27,7 +28,7 @@ const phaseCards = [
     metrics: ["Tx journey", "Hash diff", "Tamper lab"]
   },
   {
-    title: "Phase 1",
+    title: "Network Labs",
     label: "Network, Mempool and Mining Arena",
     target: "#network-pulse",
     icon: Network,
@@ -43,7 +44,7 @@ const phaseCards = [
     metrics: ["Security", "3D NFTs", "Mission"]
   },
   {
-    title: "Phase 1",
+    title: "Foundations",
     label: "Foundations Lab",
     target: "#learning-tool",
     icon: Blocks,
@@ -51,7 +52,7 @@ const phaseCards = [
     metrics: ["Hashing", "Blocks", "Validation"]
   },
   {
-    title: "Phase 2",
+    title: "Blocks",
     label: "Block & Hash Mechanism",
     target: "#phase2-workbench",
     icon: Fingerprint,
@@ -59,7 +60,7 @@ const phaseCards = [
     metrics: ["Nonce", "Prev hash", "Tamper detection"]
   },
   {
-    title: "Phase 3",
+    title: "Transactions",
     label: "Transactions & Signatures",
     target: "#phase3",
     icon: Send,
@@ -67,7 +68,7 @@ const phaseCards = [
     metrics: ["Mempool", "Signature", "Balance checks"]
   },
   {
-    title: "Phase 4",
+    title: "Wallets",
     label: "Wallets & Ownership",
     target: "#phase4",
     icon: WalletCards,
@@ -75,7 +76,7 @@ const phaseCards = [
     metrics: ["Keys", "Address book", "Security"]
   },
   {
-    title: "Phase 5",
+    title: "Mining",
     label: "Mining & Proof of Work",
     target: "#phase5",
     icon: Pickaxe,
@@ -83,7 +84,7 @@ const phaseCards = [
     metrics: ["Nonce", "Difficulty", "Rewards"]
   },
   {
-    title: "Phase 6",
+    title: "Consensus",
     label: "Consensus Mechanisms",
     target: "#phase6",
     icon: Network,
@@ -91,7 +92,7 @@ const phaseCards = [
     metrics: ["Voting", "Forks", "BFT"]
   },
   {
-    title: "Phase 7",
+    title: "Contracts",
     label: "Smart Contracts",
     target: "#phase7",
     icon: FileCode2,
@@ -99,7 +100,7 @@ const phaseCards = [
     metrics: ["State", "Events", "Gas"]
   },
   {
-    title: "Phase 8",
+    title: "Tokens",
     label: "Tokens & NFTs",
     target: "#phase8",
     icon: GalleryHorizontalEnd,
@@ -107,7 +108,7 @@ const phaseCards = [
     metrics: ["ERC-20", "ERC-721", "Marketplace"]
   },
   {
-    title: "Phase 9",
+    title: "DeFi",
     label: "DeFi, DAO & Real-World",
     target: "#phase9",
     icon: Landmark,
@@ -115,11 +116,11 @@ const phaseCards = [
     metrics: ["DeFi", "DAO", "Supply Chain"]
   },
   {
-    title: "Phase 10",
+    title: "Final Practice",
     label: "Complete Practice Playground",
     target: "#phase10",
     icon: GraduationCap,
-    objective: "Revise all phases, complete integrated labs, final assessment, badges, and export.",
+    objective: "Revise all topics, complete integrated labs, final assessment, badges, and export.",
     metrics: ["Assessment", "Badges", "Progress"]
   },
   {
@@ -180,7 +181,17 @@ const phaseCards = [
   }
 ];
 
-export default function ProfessionalCommandCenter({ completionPercent }) {
+const viewFilters = {
+  All: () => true,
+  Learn: card => /Walkthrough|Foundations|Mechanism|Comparison|Practice Playground/i.test(`${card.label} ${card.objective}`),
+  Simulate: card => /Lab|Simulator|Arena|Network|Wallet|Mining|DeFi|DAO|Case/i.test(`${card.label} ${card.objective}`),
+  Quiz: card => /assessment|badges|Progress|Verification|understanding/i.test(`${card.label} ${card.objective} ${card.metrics.join(" ")}`)
+};
+
+export default function ProfessionalCommandCenter({ completionPercent, completed = new Set() }) {
+  const [filter, setFilter] = useState("All");
+  const filteredCards = useMemo(() => phaseCards.filter(viewFilters[filter]), [filter]);
+
   return (
     <section id="learning-console" className="section-wrap tool-grid-bg pt-8">
       <div className="grid gap-5 xl:grid-cols-[.85fr_1.15fr]">
@@ -223,11 +234,36 @@ export default function ProfessionalCommandCenter({ completionPercent }) {
                 </div>
               ))}
             </div>
+
+            <div className="mt-6 rounded-lg border border-slate-200 p-4 dark:border-white/10">
+              <p className="text-sm font-black uppercase tracking-wide text-slate-500 dark:text-slate-400">Status legend</p>
+              <div className="mt-3 grid grid-cols-2 gap-2 text-sm font-bold">
+                <LegendDot label="Ready" color="bg-blue-500" />
+                <LegendDot label="Saved" color="bg-emerald-500" />
+                <LegendDot label="Needs review" color="bg-amber-500" />
+                <LegendDot label="Rejected" color="bg-red-500" />
+              </div>
+            </div>
           </div>
         </aside>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {phaseCards.map(({ title, label, target, icon: Icon, objective, metrics }, index) => (
+        <div>
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="inline-grid grid-cols-4 rounded-lg border border-slate-200 bg-white p-1 dark:border-white/10 dark:bg-slate-900">
+              {Object.keys(viewFilters).map(option => (
+                <button key={option} type="button" onClick={() => setFilter(option)} className={`rounded-md px-3 py-2 text-sm font-black transition ${filter === option ? "bg-cyanx text-white" : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10"}`}>
+                  {option}
+                </button>
+              ))}
+            </div>
+            <p className="text-sm font-bold text-slate-500 dark:text-slate-400">{filteredCards.length} visible</p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+          {filteredCards.map(({ title, label, target, icon: Icon, objective, metrics }, index) => {
+            const targetId = target.replace("#", "");
+            const done = completed.has(targetId);
+            return (
             <motion.a
               key={label}
               href={target}
@@ -235,17 +271,20 @@ export default function ProfessionalCommandCenter({ completionPercent }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ delay: index * 0.04 }}
-              className="panel group flex min-h-72 flex-col p-5 transition hover:-translate-y-1 hover:border-cyanx"
+              className={`panel group flex min-h-72 flex-col p-5 transition hover:-translate-y-1 hover:border-cyanx ${done ? "ring-2 ring-emerald-400/30" : ""}`}
             >
               <div className="mb-5 flex items-start justify-between gap-4">
                 <span className="grid h-12 w-12 place-items-center rounded-lg bg-cyanx/10 text-cyanx">
                   <Icon size={25} />
                 </span>
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-wide text-slate-500 dark:bg-white/10 dark:text-slate-300">
-                  Launch lab
+                <span className={`rounded-full px-3 py-1 text-xs font-black uppercase tracking-wide ${done ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-200" : "bg-slate-100 text-slate-500 dark:bg-white/10 dark:text-slate-300"}`}>
+                  {done ? "Saved" : "Open"}
                 </span>
               </div>
-              <p className="text-sm font-black uppercase tracking-wide text-cyanx">{title}</p>
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-sm font-black uppercase tracking-wide text-cyanx">{title}</p>
+                <CompletionRing complete={done} />
+              </div>
               <h3 className="mt-1 text-2xl font-black">{label}</h3>
               <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">{objective}</p>
               <div className="mt-auto flex flex-wrap gap-2 pt-5">
@@ -256,10 +295,23 @@ export default function ProfessionalCommandCenter({ completionPercent }) {
                 ))}
               </div>
             </motion.a>
-          ))}
+          );})}
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function LegendDot({ label, color }) {
+  return <span className="inline-flex items-center gap-2"><span className={`h-2.5 w-2.5 rounded-full ${color}`} /> {label}</span>;
+}
+
+function CompletionRing({ complete }) {
+  return (
+    <span className={`grid h-9 w-9 place-items-center rounded-full border-4 text-xs font-black ${complete ? "border-emerald-400 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-200" : "border-slate-200 text-slate-400 dark:border-white/10"}`}>
+      {complete ? "100" : "0"}
+    </span>
   );
 }
 
@@ -273,16 +325,16 @@ export function LabNavigator() {
         ["Tx + Hash", "#transaction-journey", Fingerprint],
         ["Network Labs", "#network-pulse", Network],
         ["Advanced", "#wallet-security-simulation", ShieldCheck],
-        ["Phase 1 Tool", "#learning-tool", Blocks],
-        ["Phase 2 Hash", "#phase2-workbench", Fingerprint],
-        ["Phase 3 Tx", "#phase3", Send],
-        ["Phase 4 Wallet", "#phase4", KeyRound],
-        ["Phase 5 Mining", "#phase5", Pickaxe],
-        ["Phase 6 Consensus", "#phase6", Network],
-        ["Phase 7 Contracts", "#phase7", FileCode2],
-        ["Phase 8 Tokens", "#phase8", GalleryHorizontalEnd],
-        ["Phase 9 DeFi", "#phase9", Landmark],
-        ["Phase 10 Final", "#phase10", GraduationCap],
+        ["Foundation Tool", "#learning-tool", Blocks],
+        ["Hash Lab", "#phase2-workbench", Fingerprint],
+        ["Transactions", "#phase3", Send],
+        ["Wallets", "#phase4", KeyRound],
+        ["Mining", "#phase5", Pickaxe],
+        ["Consensus", "#phase6", Network],
+        ["Contracts", "#phase7", FileCode2],
+        ["Tokens", "#phase8", GalleryHorizontalEnd],
+        ["DeFi", "#phase9", Landmark],
+        ["Final Practice", "#phase10", GraduationCap],
         ["Bitcoin Case", "#bitcoin-case", Bitcoin],
         ["Supply Case", "#supply-chain-case", Truck],
         ["Certificate Case", "#certificate-case", FileBadge],

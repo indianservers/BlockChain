@@ -40,7 +40,7 @@ export default function Phase9() {
         <div className="grid gap-8 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
           <div>
             <p className="mb-3 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-cyanx">
-              <Landmark size={17} /> Phase 9
+              <Landmark size={17} /> DeFi & DAO
             </p>
             <h2 className="text-4xl font-black tracking-tight md:text-6xl">DeFi, DAO & Real-World Blockchain Lab</h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -313,7 +313,7 @@ function Phase9Quiz() {
       </div>
       {done ? (
         <>
-          <h3 className="text-3xl font-black">Phase 9 score: {score}/{phase9Quiz.length}</h3>
+          <h3 className="text-3xl font-black">DeFi score: {score}/{phase9Quiz.length}</h3>
           <button type="button" onClick={() => { setIndex(0); setScore(0); setSelected(null); setDone(false); localStorage.setItem("bfv-phase9-quiz", "0"); }} className="btn-primary mt-6">Restart</button>
         </>
       ) : (

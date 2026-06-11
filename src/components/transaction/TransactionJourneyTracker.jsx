@@ -93,7 +93,7 @@ export default function TransactionJourneyTracker() {
         </p>
         <h2 className="text-3xl font-black tracking-tight md:text-5xl">Follow one transaction from wallet to confirmed ledger</h2>
         <p className="mt-3 text-lg leading-8 text-slate-600 dark:text-slate-300">
-          Click each stage or step through the flow to see how a transaction moves from creation to confirmation.
+          Click any point or move through the flow to see how a transaction goes from creation to confirmation.
         </p>
       </div>
 
@@ -117,8 +117,8 @@ export default function TransactionJourneyTracker() {
             ))}
           </div>
           <div className="mt-5 flex flex-wrap gap-3">
-            <button type="button" onClick={() => setCurrentStage(stageIndex => Math.max(0, stageIndex - 1))} className="btn-secondary">Previous Stage</button>
-            <button type="button" onClick={() => setCurrentStage(stageIndex => Math.min(stages.length - 1, stageIndex + 1))} className="btn-primary">Next Stage</button>
+            <button type="button" onClick={() => setCurrentStage(stageIndex => Math.max(0, stageIndex - 1))} className="btn-secondary">Previous</button>
+            <button type="button" onClick={() => setCurrentStage(stageIndex => Math.min(stages.length - 1, stageIndex + 1))} className="btn-primary">Next</button>
           </div>
         </article>
 

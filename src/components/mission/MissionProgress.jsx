@@ -9,7 +9,7 @@ export default function MissionProgress({ complete, total }) {
       <div className="h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
         <div className="h-full bg-gradient-to-r from-bluex to-cyanx transition-all" style={{ width: `${percent}%` }} />
       </div>
-      <p className="mt-3 font-bold">{complete}/{total} mission steps complete</p>
+      <p className="mt-3 font-bold">{complete}/{total} mission actions complete</p>
     </article>
   );
 }

@@ -34,7 +34,7 @@ export default function Hero({ stats }) {
       <div className="section-wrap flex min-h-[calc(100vh-4.25rem)] items-center">
         <div className="max-w-5xl">
           <motion.p className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm font-extrabold text-cyanx shadow-sm dark:border-white/10 dark:bg-white/10" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
-            <PlayCircle size={17} /> Phase 1: Blockchain Foundations
+            <PlayCircle size={17} /> Blockchain Foundations
           </motion.p>
           <motion.h1 className="text-5xl font-black tracking-tight md:text-7xl lg:text-8xl" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}>
             Blockchain Foundations Visualizer

@@ -100,7 +100,7 @@ export default function Phase5() {
         <div className="grid items-center gap-8 lg:grid-cols-[.95fr_1.05fr]">
           <div>
             <p className="mb-3 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-cyanx">
-              <Pickaxe size={17} /> Phase 5
+              <Pickaxe size={17} /> Mining
             </p>
             <h2 className="text-4xl font-black tracking-tight md:text-6xl">Mining, Nonce & Proof of Work Simulator</h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -297,7 +297,7 @@ function Phase5Quiz() {
       </div>
       {done ? (
         <>
-          <h3 className="text-3xl font-black">Phase 5 score: {score}/{phase5Quiz.length}</h3>
+          <h3 className="text-3xl font-black">Mining score: {score}/{phase5Quiz.length}</h3>
           <button type="button" onClick={() => { setIndex(0); setScore(0); setSelected(null); setDone(false); localStorage.setItem("bfv-phase5-quiz", "0"); }} className="btn-primary mt-6">Restart</button>
         </>
       ) : (

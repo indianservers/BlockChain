@@ -135,7 +135,7 @@ export default function InteractiveLearningConsole() {
           </p>
           <h2 className="text-4xl font-black tracking-tight md:text-6xl">Operate the blockchain, do not just read it</h2>
           <p className="mt-4 text-lg leading-8 text-slate-300">
-            This is a mission console: every tab has a required action, live state, feedback, and a score. The deeper modules below become reference labs after this operating surface.
+            This is a mission console: every tab has a required action, live state, feedback, and a score. The deeper labs below become references after this operating surface.
           </p>
         </div>
         <div className="grid gap-3 sm:grid-cols-3">

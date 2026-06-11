@@ -30,13 +30,13 @@ export default function FlowActivity() {
 
   function check() {
     const correct = items.every((item, index) => item === flowSteps[index]);
-    setFeedback(correct ? "Correct sequence. The blockchain flow is ready." : "Some steps are out of order. Start with transaction creation and finish with ledger update.");
+    setFeedback(correct ? "Correct sequence. The blockchain flow is ready." : "Some items are out of order. Start with transaction creation and finish with ledger update.");
   }
 
   return (
     <article className="panel p-6">
       <h3 className="text-2xl font-black">Arrange the blockchain flow</h3>
-      <p className="mt-2 leading-7 text-slate-600 dark:text-slate-300">Drag steps into order, or use arrow keys after focusing a step.</p>
+      <p className="mt-2 leading-7 text-slate-600 dark:text-slate-300">Drag items into order, or use arrow keys after focusing an item.</p>
       <ol className="mt-5 grid gap-3">
         {items.map((item, index) => (
           <li

@@ -128,7 +128,7 @@ export default function Phase10() {
         <div className="grid gap-8 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
           <div>
             <p className="mb-3 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-cyanx">
-              <GraduationCap size={17} /> Phase 10
+              <GraduationCap size={17} /> Final Practice
             </p>
             <h2 className="text-4xl font-black tracking-tight md:text-6xl">Complete Blockchain Practice Playground</h2>
             <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -144,7 +144,7 @@ export default function Phase10() {
       </section>
 
       <section id="revision-dashboard" className="section-wrap bg-slate-100/70 dark:bg-white/[.035]">
-        <PhaseTitle icon={Award} eyebrow="Revision dashboard" title="Review every phase and earn badges" description="Launch quick revision actions and track mastery across the complete blockchain journey." />
+        <PhaseTitle icon={Award} eyebrow="Revision dashboard" title="Review every topic and earn badges" description="Launch quick revision actions and track mastery across the complete blockchain journey." />
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {revisionPhases.map(phase => (
             <article key={phase.title} className="panel p-5">
@@ -170,7 +170,7 @@ export default function Phase10() {
       </section>
 
       <section id="integrated-labs" className="section-wrap bg-slate-100/70 dark:bg-white/[.035]">
-        <PhaseTitle icon={Trophy} eyebrow="Integrated practice stations" title="Contract, token, and DeFi mini labs" description="Each station runs real simulator logic from previous phases and awards progress." />
+        <PhaseTitle icon={Trophy} eyebrow="Integrated practice stations" title="Contract, token, and DeFi mini labs" description="Each station runs real simulator logic from earlier topics and awards progress." />
         <div className="grid gap-4 md:grid-cols-3">
           <Station title="Smart contract scenarios" text="Complete escrow and revise voting/token minting concepts." action="Run Contract Practice" onClick={runContractPractice} />
           <Station title="Token and NFT practice" text="Deploy token, mint tokens, deploy NFT, mint two NFTs." action="Run Token Practice" onClick={runTokenPractice} />

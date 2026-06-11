@@ -13,6 +13,23 @@
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   }
 
+  html[data-font-size="large"] {
+    font-size: 17px;
+  }
+
+  html[data-font-size="larger"] {
+    font-size: 18px;
+  }
+
+  html.reduce-motion *,
+  html.reduce-motion *::before,
+  html.reduce-motion *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+
   button,
   a {
     -webkit-tap-highlight-color: transparent;
@@ -22,6 +39,15 @@
 @layer components {
   .section-wrap {
     @apply mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24;
+  }
+
+  html[data-density="compact"] .section-wrap {
+    @apply py-10 lg:py-14;
+  }
+
+  html[data-density="compact"] .panel,
+  html[data-density="compact"] .instrument-panel {
+    @apply shadow-none;
   }
 
   .panel {
@@ -62,5 +88,30 @@
 @keyframes dash {
   to {
     stroke-dashoffset: -220;
+  }
+}
+
+@media print {
+  header,
+  nav,
+  button,
+  .fixed,
+  canvas {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #0f172a !important;
+  }
+
+  .section-wrap {
+    padding: 1.25rem !important;
+  }
+
+  .panel,
+  .instrument-panel {
+    break-inside: avoid;
+    box-shadow: none !important;
   }
 }

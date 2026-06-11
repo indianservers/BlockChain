@@ -125,7 +125,7 @@ export function mintNFT(state, owner, metadata) {
       name: metadata?.name || `Learning NFT #${state.nft.nextId}`,
       description: metadata?.description || "A simulated NFT for blockchain learning.",
       image: metadata?.image || "gradient-blue-cyan",
-      attributes: metadata?.attributes || [{ trait_type: "Phase", value: "Token Standards" }]
+      attributes: metadata?.attributes || [{ trait_type: "Topic", value: "Token Standards" }]
     }
   };
   const tokens = [...state.nft.tokens, token];
